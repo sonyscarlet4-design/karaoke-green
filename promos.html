@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karaoke Green - Promociones Exclusivas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="karaoke.css">
+</head>
+<body>
+
+  <!-- Mensaje de Notificación Flotante -->
+  <div class="toast-alert" id="toastAlert"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <i class="fa-solid fa-microphone-lines"></i>
+      <div>
+        <div class="brand-name">Karaoke Green</div>
+        <div class="brand-tag">KARAOKE BAR • LA PAZ</div>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Reserva</a></li>
+    </ul>
+  </nav>
+
+  <div class="app-viewport">
+    <div class="screen-container">
+      <h2 class="neon-text-pink" style="text-align: center; font-size: 1.6rem; margin-bottom: 0.5rem;">Promociones Exclusivas</h2>
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Selecciona una promoción para aplicarla y reclamarla al instante</p>
+
+      <div class="grid-cards">
+        
+        <!-- Promo 1 -->
+        <div class="glass-panel card-item">
+          <i class="fa-solid fa-glass-water-droplet" style="font-size: 2rem; color: var(--neon-pink); margin-bottom: 8px;"></i>
+          <h4 style="font-size: 1.1rem;">Pre-Game Anticipado</h4>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin: 6px 0;">1 Jarra Fernet 1.5L o Cervezas gratis al reservar con 24h de anticipación.</p>
+          <br>
+          <button class="btn-neon btn-claim-promo" data-promo="Pre-Game Anticipado (Jarra Fernet gratis)">
+            <i class="fa-solid fa-check"></i> Reclamar Promo
+          </button>
+        </div>
+
+        <!-- Promo 2 -->
+        <div class="glass-panel card-item">
+          <i class="fa-solid fa-cake-candles" style="font-size: 2rem; color: var(--neon-gold); margin-bottom: 8px;"></i>
+          <h4 style="font-size: 1.1rem;">Combo Cumpleañero</h4>
+          <p style="font-size: 0.78rem; color: var(--text-muted); margin: 6px 0;">Torta artesanal + Espumante + Chupitos por solo 120 Bs.</p>
+          <br>
+          <button class="btn-neon btn-cyan btn-claim-promo" data-promo="Combo Cumpleañero (120 Bs.)">
+            <i class="fa-solid fa-check"></i> Reclamar Promo
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery y Script Principal -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="karaoke.js"></script>
+</body>
+</html>

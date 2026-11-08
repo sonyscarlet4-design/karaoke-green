@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karaoke Green - Canciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="karaoke.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <i class="fa-solid fa-microphone-lines"></i>
+      <div>
+        <div class="brand-name">karaoke Green</div>
+        <div class="brand-tag">KARAOKE BAR • LA PAZ</div>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Reserva</a></li>
+    </ul>
+  </nav>
+
+  <div class="app-viewport">
+    <div class="screen-container">
+      <h2 class="neon-text-cyan" style="text-align: center; font-size: 1.6rem; margin-bottom: 0.5rem;">Catálogo de Canciones</h2>
+      <div class="glass-panel" style="padding: 1.2rem;">
+        <input type="text" id="songSearch" class="form-control" placeholder="Escribe el nombre de una canción o artista (ej. Queen, Zoé, Bad Bunny)..." style="margin-bottom: 0.8rem;">
+        <div id="songList" class="song-list-box"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="karaoke.js"></script>
+</body>
+</html>

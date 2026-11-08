@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karaoke Green - Coctelería & Piqueos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="karaoke.css">
+</head>
+<body>
+
+  <!-- Mensaje de notificación Toast -->
+  <div class="toast-alert" id="toastAlert"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <i class="fa-solid fa-microphone-lines"></i>
+      <div>
+        <div class="brand-name">Karaoke Green</div>
+        <div class="brand-tag">KARAOKE BAR • LA PAZ</div>
+      </div>
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link btn-back"><i class="fa-solid fa-arrow-left"></i> Volver a Reserva</a></li>
+    </ul>
+  </nav>
+
+  <div class="app-viewport">
+    <div class="screen-container">
+      <h2 class="neon-text-cyan" style="text-align: center; font-size: 1.6rem; margin-bottom: 0.3rem;">Menú de Coctelería & Piqueos</h2>
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Haz clic en <strong>Agregar</strong> para sumar tragos o comida a tu pedido</p>
+
+      <div class="grid-cards">
+        
+        <!-- Producto 1 -->
+        <div class="glass-panel card-item">
+          <i class="fa-solid fa-wine-glass" style="font-size: 2rem; color: var(--neon-pink); margin-bottom: 8px;"></i>
+          <h4 style="font-size: 1rem;">Jarra Fernet 1.5L</h4>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin: 4px 0;">Fernet Branca + Coca Cola + Hielo</p>
+          <span style="color:var(--neon-cyan); font-weight:800; font-size: 1.1rem; display: block; margin-bottom: 8px;">75 Bs.</span>
+          <button class="btn-neon btn-add-item" data-id="1" data-name="Jarra Fernet 1.5L" data-price="75">
+            <i class="fa-solid fa-plus"></i> Agregar
+          </button>
+        </div>
+
+        <!-- Producto 2 -->
+        <div class="glass-panel card-item">
+          <i class="fa-solid fa-martini-glass-citrus" style="font-size: 2rem; color: var(--neon-cyan); margin-bottom: 8px;"></i>
+          <h4 style="font-size: 1rem;">Singani Sour</h4>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin: 4px 0;">Singani boliviano + Limón criollo</p>
+          <span style="color:var(--neon-cyan); font-weight:800; font-size: 1.1rem; display: block; margin-bottom: 8px;">35 Bs.</span>
+          <button class="btn-neon btn-add-item" data-id="2" data-name="Singani Sour" data-price="35">
+            <i class="fa-solid fa-plus"></i> Agregar
+          </button>
+        </div>
+
+        <!-- Producto 3 -->
+        <div class="glass-panel card-item">
+          <i class="fa-solid fa-drumstick-bite" style="font-size: 2rem; color: var(--neon-gold); margin-bottom: 8px;"></i>
+          <h4 style="font-size: 1rem;">Tabla de Alitas (12ud)</h4>
+          <p style="font-size: 0.75rem; color: var(--text-muted); margin: 4px 0;">Salsa BBQ o Buffalo + Papas</p>
+          <span style="color:var(--neon-cyan); font-weight:800; font-size: 1.1rem; display: block; margin-bottom: 8px;">45 Bs.</span>
+          <button class="btn-neon btn-add-item" data-id="3" data-name="Tabla de Alitas" data-price="45">
+            <i class="fa-solid fa-plus"></i> Agregar
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Resumen del Carrito de Pedido -->
+      <div class="glass-panel" style="margin-top: 1.2rem; padding: 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px;">
+          <h4 class="neon-text-pink" style="font-size: 0.95rem;"><i class="fa-solid fa-cart-shopping"></i> Tu Pedido de Barra</h4>
+          <button id="btnClearCart" style="background:none; border:none; color:var(--text-muted); font-size:0.75rem; cursor:pointer;"><i class="fa-solid fa-trash"></i> Vaciar</button>
+        </div>
+
+        <div id="cartItemsList" style="margin: 10px 0; max-height: 120px; overflow-y: auto; font-size: 0.85rem; color: var(--text-muted);">
+          <p style="text-align: center; font-style: italic; color: var(--text-muted);">Aún no has agregado consumiciones.</p>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px;">
+          <div>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">TOTAL ADICIONAL:</span>
+            <strong id="cartTotal" style="color: var(--neon-gold); font-size: 1.2rem; margin-left: 6px;">0 Bs.</strong>
+          </div>
+          <button class="btn-neon btn-cyan" id="btnSendOrder" style="padding: 8px 16px; font-size: 0.8rem;">
+            <i class="fa-brands fa-whatsapp"></i> Pedir a la Sala
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<!-- Asegúrate de tener estas dos líneas al final de cocteles.html -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="karaoke.js"></script>
+</body>
+</html>
+  

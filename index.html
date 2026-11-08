@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karaoke Green - Reserva</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Enlace corregido al nombre de tu archivo CSS -->
+  <link rel="stylesheet" href="karaoke.css">
+</head>
+<body>
+
+  <div class="toast-alert" id="toastAlert"></div>
+
+  <!-- Navbar con enlaces Href a otras páginas físicas -->
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <i class="fa-solid fa-microphone-lines"></i>
+      <div>
+        <div class="brand-name"> Karaoke Green</div>
+        <div class="brand-tag">KARAOKE BAR • LA PAZ</div>
+      </div>
+    </a>
+    
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-link nav-pill">Reservar</a></li>
+      <li><a href="salas.html" class="nav-link">Salas VIP</a></li>
+      <li><a href="canciones.html" class="nav-link">Canciones</a></li>
+      <li><a href="promos.html" class="nav-link">Promos</a></li>
+      <li><a href="cocteles.html" class="nav-link">Coctelería</a></li>
+    </ul>
+  </nav>
+
+  <div class="app-viewport">
+    <div class="view-screen active">
+      <div class="hero-grid">
+        
+        <div class="hero-content">
+          <div class="hero-badge"><i class="fa-solid fa-bolt"></i> Sopocachi • La Paz</div>
+          <h1 class="hero-title">
+            ¡Libera Tu Voz! <br>
+            <span class="neon-text-pink">Canta, Toma y Disfruta</span>
+          </h1>
+          <p class="hero-description">
+            Salas privadas 100% insonorizadas, luces neón rítmicas y Smart TVs 4K. Confirma tu reserva en línea en segundos.
+          </p>
+
+          <div class="promo-banner-hero">
+            <i class="fa-solid fa-gift"></i>
+            <div>
+              <strong style="font-size: 0.85rem;">PROMO ANTICIPADA:</strong>
+              <p style="font-size: 0.75rem; color: var(--text-muted);">¡Reserva con 24h de anticipación y llévate una Jarra Fernet de regalo!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-panel booking-card">
+          <div class="form-header">
+            <span class="neon-text-cyan" style="font-weight: 800; font-size: 0.95rem;">
+              <i class="fa-regular fa-calendar-check"></i> Reserva Tu Sala
+            </span>
+            <span class="badge-live">Validación en Vivo</span>
+          </div>
+
+          <form id="bookingForm">
+            <div class="form-grid">
+              <div class="form-group full">
+                <label for="inputName">Nombre Completo *</label>
+                <input type="text" id="inputName" class="form-control" placeholder="Ej. Luciana Castillo" required>
+              </div>
+
+              <div class="form-group">
+                <label for="inputPhone">Celular (WhatsApp) *</label>
+                <input type="tel" id="inputPhone" class="form-control" placeholder="Ej. 71234567" required>
+              </div>
+
+              <div class="form-group">
+                <label for="selectRoom">Seleccionar Sala *</label>
+                <select id="selectRoom" class="form-control">
+                  <option value="80">VIP Disco Room (80 Bs./h)</option>
+                  <option value="60">Rock Legends (60 Bs./h)</option>
+                  <option value="100">Cyberpop Room (100 Bs./h)</option>
+                  <option value="50">Indie Lounge (50 Bs./h)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="inputDate">Fecha *</label>
+                <input type="date" id="inputDate" class="form-control" required>
+              </div>
+
+              <div class="form-group">
+                <label for="inputTime">Hora de Inicio *</label>
+                <input type="time" id="inputTime" class="form-control" required>
+              </div>
+
+              <div class="form-group full">
+                <label for="selectHours">Duración (Horas) *</label>
+                <select id="selectHours" class="form-control">
+                  <option value="1">1 Hora</option>
+                  <option value="2" selected>2 Horas (Recomendado)</option>
+                  <option value="3">3 Horas</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="calculator-breakdown">
+              <div class="calc-row"><span>Tarifa Base Sala:</span> <span id="calcRoomTotal">160 Bs.</span></div>
+              <div class="calc-row total"><span>TOTAL ESTIMADO:</span> <span id="calcGrandTotal">160 Bs.</span></div>
+            </div>
+
+            <button type="submit" class="btn-neon" style="width: 100%; margin-top: 4px; padding: 12px;">
+              <i class="fa-solid fa-paper-plane"></i> Procesar Reserva Ahora
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal con Temporizador de 10 Segundos -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="glass-panel modal-box">
+      <h3 class="neon-text-pink"><i class="fa-solid fa-circle-question"></i> ¿Estás seguro?</h3>
+      <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">
+        ¿Deseas confirmar la reserva con los siguientes datos?
+      </p>
+      
+      <div class="timer-display" id="timerDisplay">10s</div>
+
+      <div class="summary-box">
+        <p><strong>Cliente:</strong> <span id="summaryName"></span></p>
+        <p><strong>WhatsApp:</strong> <span id="summaryPhone"></span></p>
+        <p><strong>Fecha/Hora:</strong> <span id="summaryDateTime"></span></p>
+        <p style="margin-top:4px;"><strong>Monto Total:</strong> <span id="summaryTotal" style="color:var(--neon-gold); font-weight:800;"></span></p>
+      </div>
+
+      <div style="display: flex; gap: 8px;">
+        <button class="btn-neon btn-back" style="flex:1;" id="btnCancelModal">Cancelar</button>
+        <button class="btn-neon btn-cyan" style="flex:1;" id="btnConfirmModal">Sí, Confirmar</button>
+      </div>
+    </div>
+  </div>
+<!-- Asegúrate de tener estas dos líneas al final de cocteles.html -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="karaoke.js"></script>
+</body>
+</html>
+  
